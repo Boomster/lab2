@@ -6,6 +6,10 @@ public class Department {
     Employee head;
     List<Employee> employees;
 
+    private boolean isEmployee(Employee employee){
+        return employees.contains(employee);
+    }
+
     public Department(String name){
         this.name = name;
         this.employees = new ArrayList<>();

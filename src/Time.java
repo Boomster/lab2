@@ -12,7 +12,7 @@ public class Time {
     }
 
     public Time(int hours, int minutes, int seconds){
-        this.hours = hours;
+        this.hours = hours % 24;
         this.minutes = minutes;
         this.seconds = seconds;
     }
@@ -34,9 +34,9 @@ public class Time {
         StringBuilder daytime = new StringBuilder();
         daytime.append(this.hours);
         daytime.append(":");
-        daytime.append(String.format("02%d", this.minutes));
+        daytime.append(String.format("%02d", this.minutes));
         daytime.append(":");
-        daytime.append(String.format("02%d", this.seconds));
+        daytime.append(String.format("%02d", this.seconds));
         return daytime.toString();
     }
 }
