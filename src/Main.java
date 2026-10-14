@@ -75,15 +75,15 @@ public class Main {
         employee1 = new Employee("Петров");
         employee2 = new Employee("Козлов");
         employee3 = new Employee("Сидоров");
-        Department itdepartment = new Department("IT", employee2);
+        Department itdepartment = new Department("IT");
         itdepartment.addEmployee(employee1);
+        itdepartment.setHead(employee2);
         itdepartment.addEmployee(employee3);
-        System.out.println(employee1.toString());
-        System.out.println(employee2.toString());
-        System.out.println(employee3.toString());
-
         //3.4
-        System.out.println(employee1.department.toString());
+        for (Employee e : employee1.getColleagues()){
+            System.out.println(e.toString());
+        }
+        System.out.println();
         */
 
         //4.4
@@ -96,11 +96,13 @@ public class Main {
         */
 
         //5.4
+        /*
         Time t6 = new Time(34056);
         System.out.println(t6.getHours());
         Time t7 = new Time(4532);
         System.out.println(t7.getMinutes());
         Time t8 = new Time(123);
         System.out.println(t8.getSeconds());
+        */
     }
 }

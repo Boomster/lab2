@@ -6,24 +6,14 @@ public class Department {
     Employee head;
     List<Employee> employees;
 
-    private boolean isEmployee(Employee employee){
-        return employees.contains(employee);
-    }
-
     public Department(String name){
         this.name = name;
         this.employees = new ArrayList<>();
     }
 
-    public Department(String name, Employee head){
-        this.name = name;
-        this.head = head;
-        head.setDepartment(this);
-        this.employees = new ArrayList<>();
-    }
-
     public void setHead(Employee head) {
         this.head = head;
+        employees.add(head);
         head.setDepartment(this);
     }
 
@@ -32,15 +22,19 @@ public class Department {
         employee.setDepartment(this);
     }
 
+    public List<Employee> getEmployees(){
+        return this.employees;
+    }
+
     @Override
     public String toString(){
         StringBuilder departmentfull = new StringBuilder();
         departmentfull.append("Отдел: ").append(this.name).append("\n");
         departmentfull.append("Сотрудники:\n");
         for(Employee e : this.employees){
-            departmentfull.append(e.name).append("\n");
+            departmentfull.append(e.getName()).append("\n");
         }
-        departmentfull.append("Руководитель: ").append(this.head.name).append("\n");
+        departmentfull.append("Руководитель: ").append(this.head.getName()).append("\n");
         return departmentfull.toString();
     }
 }

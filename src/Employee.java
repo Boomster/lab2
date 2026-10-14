@@ -1,11 +1,8 @@
-public class Employee {
-    String name;
-    Department department;
+import java.util.List;
 
-    public Employee(String name, Department department){
-        this.name = name;
-        department.addEmployee(this);
-    }
+public class Employee {
+    private String name;
+    private Department department;
 
     public Employee(String name){
         this.name = name;
@@ -15,8 +12,12 @@ public class Employee {
         this.department = department;
     }
 
-    public String getColleagues(){
-        return this.department.toString();
+    public List<Employee> getColleagues(){
+        return this.department.getEmployees();
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
